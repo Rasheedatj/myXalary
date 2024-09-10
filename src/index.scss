@@ -6,8 +6,8 @@
   --color-pink-primary: #f7d3ea;
   --color-pink-secondary: #d62196;
 
-  --color-danger-primary: #fc09091a;
-  --color-danger-secondary: #fc0909;
+  --color-red-primary: #fc09091a;
+  --color-red-secondary: #fc0909;
 
   --color-green-primary: #3aa14e1a;
   --color-green-secondary: #039544;
@@ -15,6 +15,8 @@
   --color-purple-primary: #dacfe5;
   --color-purple-secondary: #440f7c;
 
+  --color-grey-100: #bdbdc7;
+  --color-grey-200: #6e6b7b;
   --color-grey-700: #5e5873;
 
   --color-border: #5e587380;
@@ -32,8 +34,9 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.6;
+  transition: all 300ms ease;
 }
 
 a {
@@ -42,14 +45,12 @@ a {
 }
 
 button {
-  background-color: transparent;
   outline: none;
   border: none;
   cursor: pointer;
 }
 
 input,
-button,
 textarea,
 select {
   font: inherit;

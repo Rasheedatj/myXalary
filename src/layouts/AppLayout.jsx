@@ -1,13 +1,18 @@
 import { Outlet } from 'react-router-dom';
 
 import styles from './AppLayout.module.scss';
+import Header from '../ui/header/Header';
+import Footer from '../ui/footer/Footer';
 
-const AppLayout = ({ children }) => {
+const AppLayout = () => {
   return (
-    <div>
-      appLayout
-      <Outlet />
-    </div>
+    <section>
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
+    </section>
   );
 };
 

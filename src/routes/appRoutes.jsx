@@ -22,20 +22,20 @@ export const appRoutes = [
             element: <Jobs />,
           },
           {
-            path: 'myapplications',
+            path: 'applications',
             element: <Applications />,
           },
           {
             path: 'offers',
             element: <Offers />,
           },
+          {
+            path: 'profile',
+            element: <Profile />,
+          },
         ],
       },
 
-      {
-        path: 'profile',
-        element: <Profile />,
-      },
       {
         path: '*',
         element: <PageNotFound />,
