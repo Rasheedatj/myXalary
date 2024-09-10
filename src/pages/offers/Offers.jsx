@@ -1,3 +1,5 @@
+import styles from './Offers.module.scss';
+
 const Offers = () => {
   return <div>Offers</div>;
 };

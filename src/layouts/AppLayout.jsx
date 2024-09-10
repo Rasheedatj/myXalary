@@ -1,5 +1,7 @@
 import { Outlet } from 'react-router-dom';
 
+import styles from './AppLayout.module.scss';
+
 const AppLayout = ({ children }) => {
   return (
     <div>

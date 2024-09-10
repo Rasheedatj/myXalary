@@ -1,10 +1,10 @@
 import AppLayout from '../layouts/AppLayout';
-import Applications from '../pages/Applications';
-import Jobs from '../pages/Jobs';
-import Offers from '../pages/offers';
-import PageNotFound from '../pages/PageNotFound';
-import Profile from '../pages/Profile';
-import Error from '../ui/Error';
+import Applications from '../pages/application/Applications';
+import Jobs from '../pages/jobs/Jobs';
+import Offers from '../pages/offers/Offers';
+import PageNotFound from '../pages/NotFound/PageNotFound';
+import Profile from '../pages/profile/Profile';
+import Error from '../ui/error/Error';
 
 export const appRoutes = [
   {
