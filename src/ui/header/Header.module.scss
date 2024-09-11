@@ -1,12 +1,12 @@
 @import '../../utils/mixins.scss';
 
-header {
+.header {
   background-color: var(--white);
   box-shadow: 0px 4px 24px 0px #0000000f;
   border-radius: 10px;
   margin-bottom: 4rem;
 
-  & > div:nth-child(1) {
+  & .box {
     @include flex-center;
     border-bottom: 1px solid var(--color-border);
     padding: 2rem;
@@ -21,7 +21,7 @@ header {
     }
   }
 
-  & > div:nth-child(2) {
+  & .navContainer {
     @include flex-center;
     padding: 2rem;
 

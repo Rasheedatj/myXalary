@@ -7,7 +7,7 @@ const Nav = () => {
   const { profileScore } = useSelector((store) => store.profile);
 
   return (
-    <div>
+    <div className={styles.navContainer}>
       <nav>
         <ul>
           <li>

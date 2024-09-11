@@ -18,7 +18,7 @@ export const appRoutes = [
             element: <Jobs />,
           },
           {
-            path: 'jobs',
+            path: 'job/:job',
             element: <Jobs />,
           },
           {

@@ -8,28 +8,28 @@ const SideBar = () => {
     <aside>
       <ul>
         <li>
-          <NavLink
-            to='1234'
-            className={({ isActive }) => (isActive ? `${styles.active}` : '')}
-          >
-            <img
-              src='https://i.ibb.co/yd2NMBB/unsplash-DBe29bswzpk.png'
-              alt='company logo'
-            />
+          {Array.from({ length: 10 }, (job, index) => (
+            <NavLink
+              key={index}
+              to={`/${index.toString()}`}
+              className={({ isActive }) => (isActive ? `${styles.active}` : '')}
+            >
+              <img src='/company-logo.svg' alt='company logo' />
 
-            <article>
-              <h3>Senior product designer</h3>
-              <p>atb tech</p>
+              <article>
+                <h3>Senior product designer</h3>
+                <p>atb tech</p>
 
-              <div>
-                <span>
-                  <HiOutlineLocationMarker />
-                  Lagos, Nigeria
-                </span>
-                <span>{formatToNaira(1000000)}</span>
-              </div>
-            </article>
-          </NavLink>
+                <div>
+                  <span>
+                    <HiOutlineLocationMarker />
+                    Lagos, Nigeria
+                  </span>
+                  <span>{formatToNaira(1000000)}</span>
+                </div>
+              </article>
+            </NavLink>
+          ))}
         </li>
       </ul>
     </aside>

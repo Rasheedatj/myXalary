@@ -8,8 +8,8 @@ import { useSelector } from 'react-redux';
 const Header = () => {
   const { isAuthenticated } = useSelector((store) => store.profile);
   return (
-    <header>
-      <div className={`${!isAuthenticated ? styles.border : ''}`}>
+    <header className={styles.header}>
+      <div className={`${!isAuthenticated ? styles.border : styles.box}`}>
         <Logo />
 
         {/* show logout button if user is authenticated else show signin / login buttons */}

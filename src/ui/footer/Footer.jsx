@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className={styles.footer}>
       <p>&copy; All rights reserved. Myxalary {new Date().getFullYear()}</p>
 
       <div className={styles.link}>

@@ -6,6 +6,7 @@
   & > div {
     display: grid;
     grid-template-columns: 30rem 1fr;
+    height: 100dvh;
     overflow: hidden;
     margin-top: 3rem;
   }

@@ -1,6 +1,8 @@
 @import '../../utils/mixins.scss';
 
 aside {
+  overflow: auto;
+
   & ul {
     display: flex;
     flex-direction: column;
@@ -34,7 +36,7 @@ aside {
 
         & div {
           @include flex;
-          gap: 2rem;
+          gap: 1rem;
           margin-top: 2rem;
 
           & span {
@@ -55,7 +57,7 @@ aside {
       }
 
       &.active {
-        background-color: var(--color-pink-primary);
+        background-color: var(--color-purple-primary);
       }
     }
   }

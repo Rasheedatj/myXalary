@@ -1,6 +1,6 @@
 @import '../../utils/mixins.scss';
 
-footer {
+.footer {
   @include flex-center;
   padding: 2rem;
   background-color: var(--color-purple-secondary);
