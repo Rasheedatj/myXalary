@@ -1,0 +1,12 @@
+.parent {
+  background-color: var(--white);
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
+
+  & > div {
+    display: grid;
+    grid-template-columns: 30rem 1fr;
+    overflow: hidden;
+    margin-top: 3rem;
+  }
+}
