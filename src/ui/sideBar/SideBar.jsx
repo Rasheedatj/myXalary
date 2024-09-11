@@ -11,7 +11,7 @@ const SideBar = () => {
           {Array.from({ length: 10 }, (job, index) => (
             <NavLink
               key={index}
-              to={`/${index.toString()}`}
+              to={`${index.toString()}`}
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
             >
               <img src='/company-logo.svg' alt='company logo' />

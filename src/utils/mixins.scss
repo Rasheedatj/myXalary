@@ -3,7 +3,18 @@
   align-items: center;
   justify-content: space-between;
 }
+
 @mixin flex {
   display: flex;
   align-items: center;
+}
+
+// applied and interview div
+@mixin status-style($color-secondary, $color-primary) {
+  color: $color-secondary;
+  background-color: $color-primary;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 1rem 4rem;
+  font-size: 14px;
 }

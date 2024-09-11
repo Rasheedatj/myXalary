@@ -12,7 +12,7 @@ const Nav = () => {
         <ul>
           <li>
             <NavLink
-              to='/'
+              to='jobs'
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
             >
               <HiOutlineBookmark />

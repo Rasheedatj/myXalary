@@ -5,6 +5,7 @@ import Offers from '../pages/offers/Offers';
 import PageNotFound from '../pages/NotFound/PageNotFound';
 import Profile from '../pages/profile/Profile';
 import Error from '../ui/error/Error';
+import { Navigate } from 'react-router-dom';
 
 export const appRoutes = [
   {
@@ -15,19 +16,34 @@ export const appRoutes = [
         children: [
           {
             path: '/',
-            element: <Jobs />,
+            element: <Navigate to='jobs' />,
           },
+
           {
-            path: 'job/:job',
+            path: 'jobs',
             element: <Jobs />,
+            children: [
+              {
+                path: ':jobId',
+                element: <Jobs />,
+              },
+            ],
           },
+
           {
             path: 'applications',
             element: <Applications />,
+            children: [{ path: ':jobId', element: <Applications /> }],
           },
           {
             path: 'offers',
             element: <Offers />,
+            children: [
+              {
+                path: ':jobId',
+                element: <Offers />,
+              },
+            ],
           },
           {
             path: 'profile',

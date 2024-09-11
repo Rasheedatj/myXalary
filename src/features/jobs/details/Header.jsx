@@ -1,7 +1,11 @@
+import { useLocation } from 'react-router-dom';
 import Button from '../../../ui/button/Button';
 import styles from './Details.module.scss';
 
 const Header = () => {
+  const { pathname } = useLocation();
+  const path = pathname.split('/')[1];
+
   return (
     <header className={styles.header}>
       <article className={styles.article}>
@@ -10,7 +14,14 @@ const Header = () => {
       </article>
 
       <div className={styles.btn}>
-        <Button type='secondary'>Apply</Button>
+        {path === 'jobs' && <Button type='secondary'>Apply</Button>}
+        {path === 'applications' && (
+          <div className={styles.applied}>Applied</div>
+        )}
+        {path === 'offers' && (
+          <div className={styles.interview}>Invited for interview</div>
+        )}
+
         <time>Date Posted: 20/07/2023</time>
       </div>
     </header>

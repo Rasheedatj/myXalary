@@ -19,7 +19,7 @@
         font-weight: 500;
         font-size: 26px;
         line-height: 39px;
-        color: var(--color-purple-secondary);
+        color: var(--color-grey-700);
       }
 
       p {
@@ -31,6 +31,21 @@
 
     & .btn {
       align-items: end;
+
+      .applied {
+        @include status-style(
+          var(--color-purple-secondary),
+          var(--color-purple-primary)
+        );
+      }
+
+      .interview {
+        @include status-style(
+          var(--color-pink-secondary),
+          var(--color-pink-primary)
+        );
+      }
+
       time {
         color: var(--color-grey-700);
         font-size: 14px;
@@ -41,5 +56,29 @@
 
   .footer {
     padding-block: 4rem;
+  }
+
+  .description {
+    // overflow: scroll;
+    margin-block: 3rem;
+    padding-right: 3rem;
+
+    h2,
+    h3 {
+      color: var(--color-grey-700);
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 12px;
+      line-height: 20px;
+    }
+
+    article {
+      padding-top: 1.3rem;
+    }
+
+    .responsibilities
   }
 }
