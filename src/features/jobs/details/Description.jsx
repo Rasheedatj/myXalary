@@ -20,7 +20,9 @@ const Description = () => {
       <article className={styles.responsibilities}>
         <h3>Responsibilities</h3>
         <ul>
-          <li></li>
+          <li>
+            Create design concepts and drawings to determine the best product
+          </li>
         </ul>
       </article>
     </div>
