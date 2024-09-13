@@ -13,10 +13,18 @@ const Footer = () => {
       </div>
 
       <div className={styles.icons}>
-        <FaFacebook />
-        <FaTwitter />
-        <FaInstagram />
-        <FaLinkedin />
+        <Link to='https://www.facebook.com/ATB.Tech'>
+          <FaFacebook />
+        </Link>
+        <Link to='https://twitter.com/ATBtechLtd'>
+          <FaTwitter />
+        </Link>
+        <Link to='https://www.instagram.com/atb.tech/'>
+          <FaInstagram />
+        </Link>
+        <Link to='https://www.linkedin.com/company/atb-tech'>
+          <FaLinkedin />
+        </Link>
       </div>
     </footer>
   );

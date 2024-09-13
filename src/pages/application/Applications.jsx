@@ -1,4 +1,4 @@
-import JobBoard from '../../ui/jobBoard/JobBoard';
+import JobBoard from '../../components/jobBoard/JobBoard';
 import styles from './Applications.module.scss';
 
 const Applications = () => {

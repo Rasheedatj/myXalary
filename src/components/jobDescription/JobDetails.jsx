@@ -5,7 +5,8 @@ import { useParams } from 'react-router-dom';
 import Description from './Description';
 
 const JobDetails = () => {
-  const { job } = useParams();
+  const { jobId } = useParams();
+  console.log(jobId);
   return (
     <section className={styles.details}>
       <Header />

@@ -1,0 +1,91 @@
+@import '../../utils/mixins.scss';
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: grid;
+  place-items: center;
+
+  & > div {
+    width: 60%;
+    max-width: 90%;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    padding: 2rem;
+    position: relative;
+
+    & .close {
+      position: absolute;
+      right: 0;
+      top: -5%;
+      height: 2rem;
+      width: 2rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: var(--white);
+      border: 2px solid var(--white);
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
+
+  header {
+    @include flex-center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+
+    p {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--color-grey-700);
+      line-height: 27px;
+    }
+
+    & a {
+      @include status-style(
+        var(--white),
+        var(--color-purple-secondary),
+        500,
+        14px,
+        5px 10px
+      );
+    }
+  }
+
+  main {
+    width: 90%;
+    margin-inline: auto;
+    article {
+      text-align: center;
+      padding: 4rem 0;
+
+      & h2 {
+        font-size: 26px;
+        font-weight: 500;
+        line-height: 39px;
+        padding-bottom: 1rem;
+      }
+
+      & p {
+        font-size: 14px;
+        line-height: 21px;
+      }
+    }
+  }
+
+  .form {
+    display: flex;
+    width: 70%;
+    margin-inline: auto;
+    flex-direction: column;
+    gap: 1rem;
+
+    & button {
+      margin: 3rem auto;
+    }
+  }
+}

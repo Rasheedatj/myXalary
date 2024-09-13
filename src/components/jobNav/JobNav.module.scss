@@ -3,7 +3,7 @@
 nav {
   @include flex-center;
 
-  & input {
+  & label {
     width: 50%;
   }
 }

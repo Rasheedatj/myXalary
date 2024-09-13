@@ -1,4 +1,4 @@
-import JobBoard from '../../ui/jobBoard/JobBoard';
+import JobBoard from '../../components/jobBoard/JobBoard';
 import styles from './Offers.module.scss';
 
 const Offers = () => {

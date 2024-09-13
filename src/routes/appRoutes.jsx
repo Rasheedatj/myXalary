@@ -4,8 +4,10 @@ import Jobs from '../pages/jobs/Jobs';
 import Offers from '../pages/offers/Offers';
 import PageNotFound from '../pages/NotFound/PageNotFound';
 import Profile from '../pages/profile/Profile';
-import Error from '../ui/error/Error';
+import Error from '../components/error/Error';
+import Login from '../components/auth/Login';
 import { Navigate } from 'react-router-dom';
+import SignUp from '../components/auth/SignUp';
 
 export const appRoutes = [
   {
@@ -48,6 +50,14 @@ export const appRoutes = [
           {
             path: 'profile',
             element: <Profile />,
+          },
+          {
+            path: 'login',
+            element: <Login />,
+          },
+          {
+            path: 'signup',
+            element: <SignUp />,
           },
         ],
       },

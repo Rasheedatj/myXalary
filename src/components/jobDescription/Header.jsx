@@ -14,7 +14,11 @@ const Header = () => {
       </article>
 
       <div className={styles.btn}>
-        {path === 'jobs' && <Button type='secondary'>Apply</Button>}
+        {path === 'jobs' && (
+          <Button type='secondary' size='small'>
+            Apply
+          </Button>
+        )}
         {path === 'applications' && (
           <div className={styles.applied}>Applied</div>
         )}

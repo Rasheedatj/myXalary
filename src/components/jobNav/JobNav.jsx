@@ -3,12 +3,14 @@ import { useState } from 'react';
 import Select from '../select/Select';
 import Input from '../input/Input';
 import Button from '../button/Button';
+import { useForm } from 'react-hook-form';
 
 const JobNav = () => {
   const [jobNumber, setJobNumber] = useState(10);
   const [timeFrame, setTimeFrame] = useState('all');
   const [role, setRole] = useState('');
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState('24');
+  const { register } = useForm();
 
   return (
     <nav>
@@ -18,9 +20,7 @@ const JobNav = () => {
         value={jobNumber}
         onValue={(e) => setJobNumber(e.target.value)}
       >
-        <option value={10} selected>
-          10
-        </option>
+        <option value={10}>10</option>
         <option value={50}>50</option>
         <option value={100}>100</option>
         <option value={200}>200</option>
@@ -32,19 +32,15 @@ const JobNav = () => {
         value={timeFrame}
         onValue={(e) => setTimeFrame(e.target.value)}
       >
-        <option value='all' selected>
-          All
-        </option>
+        <option value='all'>All</option>
 
         <option value='recent'>Recent</option>
       </Select>
 
       <Input
         type='search'
-        name='roleSearch'
         id='roleSearch'
-        value={role}
-        onValue={(e) => setRole(e.target.value)}
+        register={register}
         placeholder='Job Role'
       />
 
@@ -54,17 +50,19 @@ const JobNav = () => {
         value={date}
         onValue={(e) => setDate(e.target.value)}
       >
-        <option value='24' selected>
-          Past 24 hours
-        </option>
+        <option value='24'>Past 24 hours</option>
         <option value='week'>Past week</option>
 
         <option value='month'>Month</option>
         <option value='anytime'>Anytime</option>
       </Select>
 
-      <Button type='plainPrimary'>Filter Jobs</Button>
-      <Button type='plain'>Reset Filter</Button>
+      <Button type='plainPrimary' size='small'>
+        Filter Jobs
+      </Button>
+      <Button type='plain' size='small'>
+        Reset Filter
+      </Button>
     </nav>
   );
 };
