@@ -64,20 +64,29 @@
       & .profile {
         padding: 0.5rem 0.8rem;
         border-radius: 5px;
-        color: var(--color-grey-200);
-        background-color: var(--color-purple-primary);
       }
 
       & .completed {
         color: var(--color-green-secondary);
         background-color: var(--color-green-primary);
       }
+      & .zero {
+        color: var(--color-red-secondary);
+        background-color: var(--color-red-primary);
+      }
+      & .incomplete {
+        color: var(--color-grey-700);
+        background-color: var(--color-grey-300);
+      }
 
       & .alert {
-        padding: 0.5rem 0.8rem;
-        border-radius: 5px;
-        color: var(--white);
-        background-color: var(--color-red-secondary);
+        @include status-style(
+          var(--white),
+          var(--color-red-secondary),
+          500,
+          14px,
+          0.5rem 0.8rem
+        );
       }
 
       & figure {

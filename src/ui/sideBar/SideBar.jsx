@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styles from './SideBar.module.scss';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
-import { formatToNaira } from '../../utils/helpers';
+import { formatToNaira } from '../../utils/index';
 
 const SideBar = () => {
   return (

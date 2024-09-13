@@ -35,14 +35,20 @@
       .applied {
         @include status-style(
           var(--color-purple-secondary),
-          var(--color-purple-primary)
+          var(--color-purple-primary),
+          500,
+          14px,
+          0.8rem 4rem
         );
       }
 
       .interview {
         @include status-style(
           var(--color-pink-secondary),
-          var(--color-pink-primary)
+          var(--color-pink-primary),
+          500,
+          14px,
+          0.8rem 4rem
         );
       }
 
@@ -55,19 +61,34 @@
   }
 
   .footer {
-    padding-block: 4rem;
+    padding-bottom: 3rem;
   }
 
   .description {
-    // overflow: scroll;
+    overflow: auto;
+    height: 55vh;
     margin-block: 3rem;
     padding-right: 3rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+      scroll-behavior: smooth;
+    }
 
     h2,
     h3 {
       color: var(--color-grey-700);
       font-weight: 700;
-      font-size: 16px;
+      font-size: 13px;
+      text-transform: capitalize;
+
+      & span {
+        font-weight: 400;
+      }
+
+      &.extras {
+        padding-top: 2rem;
+      }
     }
 
     p,
@@ -78,14 +99,6 @@
 
     article {
       padding-top: 1.3rem;
-    }
-
-    .responsibilities {
-      ul {
-        list-style-type: disc;
-        color: var(--color-grey-700);
-        list-style-position: inside;
-      }
     }
   }
 }

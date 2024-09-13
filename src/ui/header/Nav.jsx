@@ -55,7 +55,11 @@ const Nav = () => {
       <div>
         <div
           className={`${styles.profile} ${
-            profileScore === 100 ? styles.completed : ''
+            profileScore === 100
+              ? styles.completed
+              : profileScore === 0
+              ? styles.zero
+              : styles.incomplete
           }`}
         >
           Profile score: {profileScore}%

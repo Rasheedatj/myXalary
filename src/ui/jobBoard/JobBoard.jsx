@@ -1,4 +1,4 @@
-import JobDetails from '../../features/jobs/details/JobDetails';
+import JobDetails from '../jobDescription/JobDetails';
 import SideBar from '../sideBar/SideBar';
 import styles from './JobBoard.module.scss';
 import JobNav from '../jobNav/JobNav';

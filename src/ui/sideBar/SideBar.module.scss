@@ -42,12 +42,13 @@ aside {
           & span {
             @include flex;
             gap: 5px;
-            color: var(--color-pink-secondary);
-            background-color: var(--color-pink-primary);
-            font-weight: 400;
-            font-size: 10px;
-            padding: 5px;
-            border-radius: 4px;
+            @include status-style(
+              var(--color-pink-secondary),
+              var(--color-pink-primary),
+              400,
+              10px,
+              5px
+            );
 
             & svg {
               font-size: 12px;

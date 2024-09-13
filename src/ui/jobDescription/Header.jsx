@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import Button from '../../../ui/button/Button';
+import Button from '../button/Button';
 import styles from './Details.module.scss';
 
 const Header = () => {
