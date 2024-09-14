@@ -2,6 +2,7 @@ import styles from './Header.module.scss';
 import { HiOutlineBookmark } from 'react-icons/hi';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import Status from '../status/Status';
 
 const Nav = () => {
   const { profileScore } = useSelector((store) => store.profile);
@@ -53,20 +54,20 @@ const Nav = () => {
       </nav>
 
       <div>
-        <div
-          className={`${styles.profile} ${
+        <Status
+          type={
             profileScore === 100
-              ? styles.completed
+              ? 'completed'
               : profileScore === 0
-              ? styles.zero
-              : styles.incomplete
-          }`}
+              ? 'zero'
+              : 'incomplete'
+          }
         >
           Profile score: {profileScore}%
-        </div>
+        </Status>
 
         {profileScore < 100 && (
-          <div className={styles.alert}>Complete your profile</div>
+          <Status type='alert'>Complete your profile</Status>
         )}
 
         <figure>

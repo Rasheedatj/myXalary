@@ -6,6 +6,7 @@ import Button from '../button/Button';
 import Input from '../input/Input';
 import Modal from '../modal/Modal';
 import { login } from '../../redux/profileSlice';
+import Status from '../status/Status';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,9 @@ const Login = () => {
       <header>
         <p>Login</p>
 
-        <Link>Don&apos;t have an account? &nbsp; sign up</Link>
+        <Status type='purpleSecondary'>
+          Don&apos;t have an account? &nbsp; sign up
+        </Status>
       </header>
 
       <main>

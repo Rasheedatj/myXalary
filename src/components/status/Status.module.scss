@@ -1,0 +1,41 @@
+.status {
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.completed {
+  color: var(--color-green-secondary);
+  background-color: var(--color-green-primary);
+}
+
+.zero {
+  color: var(--color-red-secondary);
+  background-color: var(--color-red-primary);
+}
+
+.incomplete {
+  color: var(--color-grey-700);
+  background-color: var(--color-grey-300);
+}
+
+.alert {
+  color: var(--white);
+  background-color: var(--color-red-secondary);
+}
+
+.pinkSecondary {
+  color: var(--white);
+  background-color: var(--color-pink-secondary);
+}
+
+.purplePrimary {
+  color: var(--color-purple-secondary);
+  background-color: var(--color-purple-primary);
+}
+
+.purpleSecondary {
+  color: var(--white);
+  background-color: var(--color-purple-secondary);
+}

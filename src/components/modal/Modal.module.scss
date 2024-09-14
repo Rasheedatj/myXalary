@@ -6,6 +6,11 @@
   background-color: rgba(0, 0, 0, 0.1);
   display: grid;
   place-items: center;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   & > form {
     width: 60%;
@@ -15,21 +20,25 @@
     border-radius: 10px;
     padding: 2rem;
     position: relative;
+    margin-block: 3rem;
 
     & .close {
       position: absolute;
       right: 0;
-      top: -5%;
-      height: 2rem;
-      width: 2rem;
+      top: -6%;
+      height: 2.5rem;
+      width: 2.5rem;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      font-weight: 700;
       color: var(--white);
       border: 2px solid var(--white);
-      font-size: 16px;
       cursor: pointer;
+
+      & svg {
+        font-weight: 700;
+        font-size: 16px;
+      }
     }
 
     header {

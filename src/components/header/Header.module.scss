@@ -70,35 +70,6 @@
       font-size: 14px;
       font-weight: 500;
 
-      & .profile {
-        padding: 0.5rem 0.8rem;
-        border-radius: 5px;
-      }
-
-      & .completed {
-        color: var(--color-green-secondary);
-        background-color: var(--color-green-primary);
-      }
-      & .zero {
-        color: var(--color-red-secondary);
-        background-color: var(--color-red-primary);
-      }
-      & .incomplete {
-        color: var(--color-grey-700);
-        background-color: var(--color-grey-300);
-      }
-
-      & .alert {
-        @include status-style(
-          var(--white),
-          var(--color-red-secondary),
-          500,
-          14px,
-          0.5rem 0.8rem
-        );
-        cursor: pointer;
-      }
-
       & figure {
         display: flex;
         align-items: center;

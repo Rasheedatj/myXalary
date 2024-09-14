@@ -52,7 +52,7 @@ const Header = () => {
         </nav>
       </div>
 
-      {/* show nav bar if user is logged in */}
+      {/* show navbar if user is logged in */}
       {isAuthenticated && <Nav />}
     </header>
   );
