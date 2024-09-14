@@ -2,7 +2,6 @@ import styles from './Header.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '../button/Button';
-import Logo from '../logo/Logo';
 import Nav from './Nav';
 import { login, logOut } from '../../redux/profileSlice';
 import { openModal } from '../../redux/appSlice';
