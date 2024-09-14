@@ -10,10 +10,17 @@ import {
   formatToNaira,
 } from '../../utils';
 
+/* props { responsibilities,
+  mustHaves,
+  qualifications,
+  benefits,
+  aboutCompany,
+  jobTitle,} */
+
 const Description = () => {
   return (
     <div className={styles.description}>
-      <h2 className={styles.h2}>Product Designer Job Description</h2>
+      <h2 className={styles.h2}>{jobTitle} Job Description</h2>
 
       <article>
         <h3>Job Overview</h3>

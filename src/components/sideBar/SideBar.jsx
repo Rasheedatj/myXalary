@@ -3,7 +3,7 @@ import styles from './SideBar.module.scss';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { formatToNaira } from '../../utils/index';
 
-const SideBar = () => {
+const SideBar = ({jobs}) => {
   return (
     <aside>
       <ul>

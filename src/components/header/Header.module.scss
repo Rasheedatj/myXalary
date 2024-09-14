@@ -11,6 +11,15 @@
     border-bottom: 1px solid var(--color-border);
     padding: 2rem;
 
+    & .logoContainer {
+      width: 10%;
+
+      &img {
+        width: auto;
+        height: 9.6rem;
+      }
+    }
+
     &.border {
       border: none;
     }
@@ -87,6 +96,7 @@
           14px,
           0.5rem 0.8rem
         );
+        cursor: pointer;
       }
 
       & figure {
