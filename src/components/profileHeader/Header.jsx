@@ -1,6 +1,5 @@
-import { HiPencil } from 'react-icons/hi';
 import styles from './Header.module.scss';
-import { AiFillEdit } from 'react-icons/ai';
+import { AiOutlineEdit } from 'react-icons/ai';
 
 const Header = ({ heading, onClick }) => {
   return (
@@ -8,7 +7,7 @@ const Header = ({ heading, onClick }) => {
       <h2>{heading}</h2>
 
       <button>
-        <AiFillEdit />
+        <AiOutlineEdit />
         <span onClick={onClick}>edit</span>
       </button>
     </header>

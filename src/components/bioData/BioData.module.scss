@@ -1,0 +1,21 @@
+@import '/src/utils/mixins.scss';
+.bioData {
+  & > div {
+    @include flex;
+    font-size: 12px;
+    line-height: 18px;
+    padding-top: 1.5rem;
+
+    h4 {
+      flex-basis: 20%;
+    }
+
+    p {
+      flex-basis: 80%;
+    }
+
+    p:not(.email) {
+      text-transform: capitalize;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import '/src/utils/mixins.scss';
+
+.personalInfo {
+  & figure {
+    @include flex-center;
+
+    width: 80%;
+    padding-top: 2rem;
+    margin-inline: auto;
+
+    & img {
+      width: 15rem;
+      height: 15rem;
+    }
+
+    & figcaption {
+      h3 {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+      }
+
+      p {
+        font-size: 12px;
+        font-weight: 400;
+      }
+
+      span {
+        @include flex-center;
+        color: var(--color-pink-secondary);
+        margin-top: 1.5rem;
+
+        & svg {
+          font-size: 16px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
