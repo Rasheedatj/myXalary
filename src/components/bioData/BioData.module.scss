@@ -1,21 +1,26 @@
 @import '/src/utils/mixins.scss';
 .bioData {
-  & > div {
-    @include flex;
-    font-size: 12px;
-    line-height: 18px;
-    padding-top: 1.5rem;
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
 
-    h4 {
-      flex-basis: 20%;
-    }
+    & > div {
+      @include flex;
+      font-size: 12px;
+      line-height: 18px;
 
-    p {
-      flex-basis: 80%;
-    }
+      h4 {
+        flex-basis: 20%;
+      }
 
-    p:not(.email) {
-      text-transform: capitalize;
+      p {
+        flex-basis: 80%;
+      }
+
+      p:not(.email) {
+        text-transform: capitalize;
+      }
     }
   }
 }

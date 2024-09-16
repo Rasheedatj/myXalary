@@ -1,0 +1,33 @@
+@import '/src/utils/mixins.scss';
+
+.box {
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    article {
+      h3 {
+        font-size: 13px;
+        line-height: 20px;
+        padding-bottom: 10px;
+      }
+
+      div {
+        @include flex;
+        flex-wrap: wrap;
+        gap: 5px;
+
+        span {
+          padding: 5px 8px;
+          border: 1px solid var(--color-pink-secondary);
+          border-radius: 4px;
+          color: var(--color-pink-secondary);
+          font-size: 9px;
+          font-weight: 400;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+}
