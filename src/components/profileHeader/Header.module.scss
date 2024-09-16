@@ -1,0 +1,25 @@
+@import '/src/utils/mixins.scss';
+
+.header {
+  @include flex-center;
+
+  h2 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 25px;
+  }
+
+  button {
+    display: block;
+    color: var(--color-pink-secondary);
+    background: none;
+    @include flex;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 500;
+
+    & svg {
+      font-size: 20px;
+    }
+  }
+}

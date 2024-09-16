@@ -6,7 +6,7 @@ import Footer from '../../components/footer/Footer';
 
 const AppLayout = () => {
   return (
-    <section>
+    <section className={styles.section}>
       <Header />
       <main>
         <Outlet />

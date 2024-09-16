@@ -1,7 +1,28 @@
+import BioData from '../../components/bioData/BioData';
+import PersonalInformation from '../../components/personalInfo/personalInformation';
+import Competence from '../../components/competence/Competence';
+import About from '../../components/about/About';
 import styles from './Profile.module.scss';
+import Experience from '../../components/experience/Experience';
+import Education from '../../components/Education/Education';
+import Document from '../../components/document/Document';
 
 const Profile = () => {
-  return <div>Profile</div>;
+  return (
+    <>
+      <h1 className={styles.heading}>My Profile</h1>
+
+      <section className={styles.gridContainer}>
+        <PersonalInformation />
+        <BioData />
+        <Competence />
+        <About />
+        <Experience />
+        <Education />
+        <Document />
+      </section>
+    </>
+  );
 };
 
 export default Profile;

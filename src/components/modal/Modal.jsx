@@ -1,5 +1,5 @@
 import styles from './Modal.module.scss';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { closeModal } from '../../redux/appSlice';
 import { HiXMark } from 'react-icons/hi2';

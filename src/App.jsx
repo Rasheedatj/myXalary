@@ -14,7 +14,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <RouterProvider router={router} />
-      <SignUp />
+      {/* <SignUp /> */}
     </QueryClientProvider>
   );
 };
