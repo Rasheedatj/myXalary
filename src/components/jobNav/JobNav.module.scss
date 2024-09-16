@@ -1,0 +1,9 @@
+@import '../../utils/mixins.scss';
+
+nav {
+  @include flex-center;
+
+  & label {
+    width: 50%;
+  }
+}

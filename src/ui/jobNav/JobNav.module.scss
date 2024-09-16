@@ -1,9 +1,0 @@
-@import '../../utils/mixins.scss';
-
-nav {
-  @include flex-center;
-
-  & input {
-    width: 50%;
-  }
-}

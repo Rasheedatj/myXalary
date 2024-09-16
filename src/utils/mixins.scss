@@ -10,11 +10,17 @@
 }
 
 // applied and interview div
-@mixin status-style($color-secondary, $color-primary) {
+@mixin status-style(
+  $color-secondary,
+  $color-primary,
+  $font-weight,
+  $font-size,
+  $padding
+) {
   color: $color-secondary;
   background-color: $color-primary;
-  font-weight: 500;
   border-radius: 5px;
-  padding: 1rem 4rem;
-  font-size: 14px;
+  font-weight: $font-weight;
+  padding: $padding;
+  font-size: $font-size;
 }

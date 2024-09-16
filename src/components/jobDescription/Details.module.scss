@@ -1,0 +1,104 @@
+@import '/src/utils/mixins.scss';
+
+.details {
+  padding-inline: 2rem;
+
+  .header {
+    @include flex-center;
+    padding-block: 2rem;
+    border-bottom: 1px solid var(--color-border);
+
+    & > * {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    & .article {
+      h1 {
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 39px;
+        color: var(--color-grey-700);
+      }
+
+      p {
+        color: var(--color-grey-700);
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+    }
+
+    & .btn {
+      align-items: end;
+
+      .applied {
+        @include status-style(
+          var(--color-purple-secondary),
+          var(--color-purple-primary),
+          500,
+          14px,
+          0.8rem 4rem
+        );
+      }
+
+      .interview {
+        @include status-style(
+          var(--color-pink-secondary),
+          var(--color-pink-primary),
+          500,
+          14px,
+          0.8rem 4rem
+        );
+      }
+
+      time {
+        color: var(--color-grey-700);
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .footer {
+    padding-bottom: 3rem;
+  }
+
+  .description {
+    overflow: auto;
+    height: 55vh;
+    margin-block: 3rem;
+    padding-right: 3rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+      scroll-behavior: smooth;
+    }
+
+    h2,
+    h3 {
+      color: var(--color-grey-700);
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: capitalize;
+
+      & span {
+        font-weight: 400;
+      }
+
+      &.extras {
+        padding-top: 2rem;
+      }
+    }
+
+    p,
+    li {
+      font-size: 12px;
+      line-height: 20px;
+    }
+
+    article {
+      padding-top: 1.3rem;
+    }
+  }
+}
