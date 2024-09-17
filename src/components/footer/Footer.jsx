@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.scss';
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
@@ -17,13 +18,13 @@ const Footer = () => {
           <FaFacebook />
         </Link>
         <Link to='https://twitter.com/ATBtechLtd'>
-          <FaTwitter />
+          <FaXTwitter />
         </Link>
         <Link to='https://www.instagram.com/atb.tech/'>
           <FaInstagram />
         </Link>
         <Link to='https://www.linkedin.com/company/atb-tech'>
-          <FaLinkedin />
+          <FaLinkedinIn />
         </Link>
       </div>
     </footer>

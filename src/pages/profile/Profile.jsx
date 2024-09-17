@@ -1,5 +1,5 @@
 import BioData from '../../components/bioData/BioData';
-import PersonalInformation from '../../components/personalInfo/personalInformation';
+import PersonalInformation from '../../components/personalInfo/PersonalInformation';
 import Competence from '../../components/competence/Competence';
 import About from '../../components/about/About';
 import styles from './Profile.module.scss';
