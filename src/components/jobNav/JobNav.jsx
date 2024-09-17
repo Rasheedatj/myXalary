@@ -13,7 +13,7 @@ const JobNav = () => {
   const { register } = useForm();
 
   return (
-    <nav>
+    <nav className={styles.jobNav}>
       <Select
         name='jobNumber'
         id='jobNumber'

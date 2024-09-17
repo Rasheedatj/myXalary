@@ -12,11 +12,19 @@
   grid-template-columns: repeat(6, 1fr);
   gap: 2rem;
 
+  @media screen and (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
+
   & > * {
     background-color: var(--white);
     box-shadow: var(--box-shadow);
     border-radius: 10px;
     padding: 2rem 1.5rem;
+
+    @media screen and (max-width: 500px) {
+      border-radius: 0;
+    }
 
     & p {
       font-size: 12px;
@@ -28,14 +36,26 @@
   & > div:nth-child(2),
   & > div:nth-child(3) {
     grid-column: span 2;
+
+    @media screen and (max-width: 500px) {
+      grid-column: span 1;
+    }
   }
   & > div:nth-child(4),
   & > div:nth-child(5) {
     grid-column: span 6;
+
+    @media screen and (max-width: 500px) {
+      grid-column: span 1;
+    }
   }
 
   & > div:nth-child(6),
   & > div:nth-child(7) {
     grid-column: span 3;
+
+    @media screen and (max-width: 500px) {
+      grid-column: span 1;
+    }
   }
 }

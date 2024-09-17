@@ -1,7 +1,8 @@
 @import '../../utils/mixins.scss';
 
-nav {
+.jobNav {
   @include flex-center;
+  padding-inline: 2rem;
 
   & label {
     width: 50%;

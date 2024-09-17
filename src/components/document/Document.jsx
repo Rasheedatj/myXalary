@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Document = () => {
   return (
     <div className={styles.box}>
-      <Header heading='Documents' />
+      <Header heading='Documents' action='upload' />
 
       <section className={styles.docs}>
         <div>

@@ -1,19 +1,24 @@
 import styles from './Header.module.scss';
 import { HiOutlineBookmark } from 'react-icons/hi';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Status from '../status/Status';
+import Button from '../button/Button';
+import { toggleMenu } from '../../redux/appSlice';
 
 const Nav = () => {
   const { profileScore } = useSelector((store) => store.profile);
+  const { openMenu } = useSelector((store) => store.app);
+  const dispatch = useDispatch();
 
   return (
-    <div className={styles.navContainer}>
+    <div className={`${styles.navContainer} ${openMenu ? styles.active : ''}`}>
       <nav>
         <ul>
           <li>
             <NavLink
               to='jobs'
+              onClick={() => dispatch(toggleMenu())}
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
             >
               <HiOutlineBookmark />
@@ -24,6 +29,7 @@ const Nav = () => {
           <li>
             <NavLink
               to='applications'
+              onClick={() => dispatch(toggleMenu())}
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
             >
               <HiOutlineBookmark />
@@ -34,6 +40,7 @@ const Nav = () => {
           <li>
             <NavLink
               to='offers'
+              onClick={() => dispatch(toggleMenu())}
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
             >
               <HiOutlineBookmark />
@@ -44,6 +51,7 @@ const Nav = () => {
           <li>
             <NavLink
               to='profile'
+              onClick={() => dispatch(toggleMenu())}
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
             >
               <HiOutlineBookmark />
@@ -51,6 +59,14 @@ const Nav = () => {
             </NavLink>
           </li>
         </ul>
+
+        <Button
+          type='primary'
+          size='small'
+          // onClick={() => dispatch(logOut())}
+        >
+          Logout
+        </Button>
       </nav>
 
       <div>
