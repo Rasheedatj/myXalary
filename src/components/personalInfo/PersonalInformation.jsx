@@ -1,13 +1,8 @@
-import styles from './personalInformation.module.scss';
+import styles from './PersonalInformation.module.scss';
 import Header from '../profileHeader/Header';
 import { Link } from 'react-router-dom';
-import {
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaLinkedinIn,
-} from 'react-icons/fa';
-import { FaX, FaXTwitter } from 'react-icons/fa6';
+import { FaFacebook, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 const PersonalInformation = () => {
   return (
