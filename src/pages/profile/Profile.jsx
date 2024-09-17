@@ -1,5 +1,5 @@
+import Information from '../../components/personal/Information';
 import BioData from '../../components/bioData/BioData';
-import PersonalInformation from '../../components/personalInfo/PersonalInformation';
 import Competence from '../../components/competence/Competence';
 import About from '../../components/about/About';
 import styles from './Profile.module.scss';
@@ -13,7 +13,7 @@ const Profile = () => {
       <h1 className={styles.heading}>My Profile</h1>
 
       <section className={styles.gridContainer}>
-        <PersonalInformation />
+        <Information />
         <BioData />
         <Competence />
         <About />

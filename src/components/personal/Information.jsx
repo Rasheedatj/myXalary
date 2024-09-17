@@ -1,15 +1,10 @@
-import styles from './personalInformation.module.scss';
-import Header from '../profileHeader/Header';
+import styles from './Information.module.scss';
+import Header from '../../components/profileHeader/Header';
 import { Link } from 'react-router-dom';
-import {
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaLinkedinIn,
-} from 'react-icons/fa';
-import { FaX, FaXTwitter } from 'react-icons/fa6';
+import { FaFacebook, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
-const PersonalInformation = () => {
+const Information = () => {
   return (
     <div className={styles.personalInfo}>
       <Header heading='Personal Information' />
@@ -41,4 +36,4 @@ const PersonalInformation = () => {
   );
 };
 
-export default PersonalInformation;
+export default Information;

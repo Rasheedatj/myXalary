@@ -5,6 +5,14 @@
   box-shadow: 0px 4px 24px 0px #0000000f;
   border-radius: 10px;
   margin-bottom: 4rem;
+  height: fit-content;
+  z-index: 100;
+
+  &.open {
+    position: fixed;
+    height: 100dvh;
+    inset: 0;
+  }
 
   & .box {
     @include flex-center;
@@ -13,6 +21,10 @@
 
     & .logoContainer {
       width: 10%;
+
+      @media screen and (max-width: 500px) {
+        width: 30%;
+      }
 
       &img {
         width: auto;
@@ -27,6 +39,18 @@
     & .btns {
       @include flex;
       gap: 1.5rem;
+
+      @media screen and (max-width: 500px) {
+        display: none;
+      }
+    }
+
+    .hamburger {
+      display: none;
+
+      @media screen and (max-width: 500px) {
+        display: block;
+      }
     }
   }
 
@@ -34,31 +58,75 @@
     @include flex-center;
     padding: 2rem;
 
+    @media screen and (max-width: 500px) {
+      display: none;
+      flex-direction: column-reverse;
+      padding: 0rem;
+
+      &.active {
+        @include flex-center;
+      }
+    }
+
     & nav {
+      @media screen and (max-width: 500px) {
+        padding-inline: 2rem;
+        padding-top: 3rem;
+        width: 100%;
+      }
+
       & ul {
         @include flex-center;
         gap: 1.5rem;
         height: 42px;
         line-height: 40px;
 
-        & a {
-          display: flex;
-          align-items: center;
-          gap: 0.8rem;
-          font-weight: 400;
-          font-size: 12px;
-          border-bottom: 2px solid transparent;
-          color: var(--color-grey-700);
+        @media screen and (max-width: 500px) {
+          flex-direction: column;
+          height: auto;
+          gap: 3rem;
+        }
 
-          & svg {
-            font-size: 1.4rem;
+        li {
+          @media screen and (max-width: 500px) {
+            width: 100%;
           }
 
-          &.active {
-            color: var(--color-pink-secondary);
-            font-weight: 500;
-            border-bottom: 2px solid var(--color-pink-secondary);
+          & a {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 400;
+            font-size: 12px;
+            border-bottom: 2px solid transparent;
+            color: var(--color-grey-700);
+
+            & svg {
+              font-size: 1.4rem;
+            }
+
+            @media screen and (max-width: 500px) {
+              border-bottom: 1px solid var(--color-border);
+              width: 100%;
+              padding-inline: 1rem;
+            }
+
+            &.active {
+              color: var(--color-pink-secondary);
+              font-weight: 500;
+              border-color: var(--color-pink-secondary);
+            }
           }
+        }
+      }
+
+      & button {
+        display: none;
+
+        @media screen and (max-width: 500px) {
+          width: 100%;
+          display: block;
+          margin-top: 5rem;
         }
       }
     }
@@ -70,10 +138,23 @@
       font-size: 14px;
       font-weight: 500;
 
+      @media screen and (max-width: 500px) {
+        gap: 0;
+        justify-content: space-between;
+        font-size: 12px;
+        width: 100%;
+        border-bottom: 1px solid var(--color-border);
+        padding: 1.5rem;
+      }
+
       & figure {
         display: flex;
         align-items: center;
         gap: 1rem;
+
+        @media screen and (max-width: 500px) {
+          gap: 5px;
+        }
 
         & figcaption {
           color: var(--color-grey-200);

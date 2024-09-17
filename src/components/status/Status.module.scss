@@ -3,6 +3,11 @@
   border-radius: 5px;
   font-size: 14px;
   font-weight: 500;
+
+  @media screen and (max-width: 500px) {
+    padding: 0.5rem;
+    font-size: 12px;
+  }
 }
 
 .completed {
