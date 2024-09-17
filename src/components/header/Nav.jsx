@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Status from '../status/Status';
 import Button from '../button/Button';
-import { toggleMenu } from '../../redux/appSlice';
+import { closeMenu } from '../../redux/appSlice';
 
 const Nav = () => {
   const { profileScore } = useSelector((store) => store.profile);
@@ -18,7 +18,7 @@ const Nav = () => {
           <li>
             <NavLink
               to='jobs'
-              onClick={() => dispatch(toggleMenu())}
+              onClick={() => dispatch(closeMenu())}
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
             >
               <HiOutlineBookmark />
@@ -29,7 +29,7 @@ const Nav = () => {
           <li>
             <NavLink
               to='applications'
-              onClick={() => dispatch(toggleMenu())}
+              onClick={() => dispatch(closeMenu())}
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
             >
               <HiOutlineBookmark />
@@ -40,7 +40,7 @@ const Nav = () => {
           <li>
             <NavLink
               to='offers'
-              onClick={() => dispatch(toggleMenu())}
+              onClick={() => dispatch(closeMenu())}
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
             >
               <HiOutlineBookmark />
@@ -51,7 +51,7 @@ const Nav = () => {
           <li>
             <NavLink
               to='profile'
-              onClick={() => dispatch(toggleMenu())}
+              onClick={() => dispatch(closeMenu())}
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
             >
               <HiOutlineBookmark />
