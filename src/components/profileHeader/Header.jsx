@@ -11,7 +11,7 @@ const Header = ({ heading, onClick, action }) => {
         {action === 'upload' ? (
           <>
             <HiArrowUpTray />
-            <span onClick={onClick}>update</span>
+            <span onClick={onClick}>upload</span>
           </>
         ) : (
           <>

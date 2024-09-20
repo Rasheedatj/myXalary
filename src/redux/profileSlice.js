@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  profileScore: 0,
+  profileScore: 100,
   isAuthenticated: true,
   user: null,
 };

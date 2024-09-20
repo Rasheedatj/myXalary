@@ -1,15 +1,18 @@
-import { useParams } from 'react-router-dom';
-
 import SideBar from '../components/sideBar/SideBar';
 import JobDetails from '../components/jobDescription/JobDetails';
+import Login from '../components/auth/Login';
+import SignUp from '../components/auth/SignUp';
+import { useSelector } from 'react-redux';
 
 const Jobs = () => {
-  const modal = useParams();
-  console.log(modal);
+  const { activeModal } = useSelector((store) => store.app);
   return (
     <>
       <SideBar />
       <JobDetails />
+
+      {activeModal === 'login' && <Login />}
+      {activeModal === 'signup' && <SignUp />}
     </>
   );
 };

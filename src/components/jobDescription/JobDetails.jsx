@@ -9,7 +9,6 @@ const JobDetails = () => {
   // 2. save job title, company, location, field and date into and obj and pass it into header
   // 3. pass the job object into description
   const { jobId } = useParams();
-  console.log(jobId);
   return (
     <section className={styles.details}>
       <Header />

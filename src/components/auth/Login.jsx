@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 
@@ -7,6 +6,7 @@ import Input from '../input/Input';
 import Modal from '../modal/Modal';
 import { login } from '../../redux/profileSlice';
 import Status from '../status/Status';
+import { handleSignup } from '../../redux/appSlice';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const Login = () => {
       <header>
         <p>Login</p>
 
-        <Status type='purpleSecondary'>
+        <Status type='purpleSecondary' onClick={() => dispatch(handleSignup())}>
           Don&apos;t have an account? &nbsp; sign up
         </Status>
       </header>
