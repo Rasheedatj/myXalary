@@ -24,7 +24,7 @@ const SideBar = ({ jobs }) => {
                     <HiOutlineLocationMarker />
                     {job.location}
                   </span>
-                  <span>{formatToNaira(job.salary)}</span>
+                  <span>{formatToNaira(job.salary[0])}</span>
                 </div>
               </article>
             </NavLink>

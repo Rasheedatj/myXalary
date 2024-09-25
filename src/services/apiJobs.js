@@ -24,9 +24,9 @@ export const getJob = async ({ jobId, path }) => {
 
 export const getApplications = async () => {
   try {
-    const res = await fetch(`${baseURL}/jobs/applications`);
+    const res = await fetch(`${baseURL}/applications`);
     if (!res.ok) throw new Error('Applications could not be loaded!');
-    const data = await res.json();
+    const { data } = await res.json();
     return data;
   } catch (error) {
     console.log(error);
@@ -35,9 +35,9 @@ export const getApplications = async () => {
 
 export const getOffers = async () => {
   try {
-    const res = await fetch(`${baseURL}/jobs/offers`);
+    const res = await fetch(`${baseURL}/offers`);
     if (!res.ok) throw new Error('Offers could not be loaded!');
-    const data = await res.json();
+    const { data } = await res.json();
     return data;
   } catch (error) {
     console.log(error);

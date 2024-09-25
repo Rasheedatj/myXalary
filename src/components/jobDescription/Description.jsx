@@ -39,9 +39,13 @@ const Description = ({ job }) => {
         location: <span>{job.location}</span>
       </h3>
       <h3 className={styles.extras}>
-        salary:
+        salary:{' '}
         <span>
-          {formatToNaira(job.salary)} - {formatToNaira(job.salary)}
+          {job.salary.length > 1
+            ? ` ${formatToNaira(job.salary[0])} - ${formatToNaira(
+                job.salary[1]
+              )}`
+            : formatToNaira(job.salary)}
         </span>
       </h3>
     </div>

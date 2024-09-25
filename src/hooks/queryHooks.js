@@ -1,5 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import { getJobs } from '../services/apiJobs';
+import {
+  getApplications,
+  getJobs,
+  getOffers,
+  getUser,
+} from '../services/apiJobs';
 import { useParams } from 'react-router-dom';
 import { getJob } from '../services/apiJobs';
 
@@ -23,39 +28,27 @@ export const useJob = (path) => {
 };
 
 export const useApplications = () => {
-  const {
-    isLoading,
-    data: applications,
-    error,
-  } = useQuery({
+  const { isLoading, data: applications } = useQuery({
     queryKey: ['applications'],
-    queryFn: getJobs,
+    queryFn: getApplications,
   });
 
   return { isLoading, applications };
 };
 
 export const useOffers = () => {
-  const {
-    isLoading,
-    data: offers,
-    error,
-  } = useQuery({
+  const { isLoading, data: offers } = useQuery({
     queryKey: ['offers'],
-    queryFn: getJobs,
+    queryFn: getOffers,
   });
 
   return { isLoading, offers };
 };
 
 export const useProfile = () => {
-  const {
-    isLoading,
-    data: profile,
-    error,
-  } = useQuery({
+  const { isLoading, data: profile } = useQuery({
     queryKey: ['profile'],
-    queryFn: getJobs,
+    queryFn: getUser,
   });
 
   return { isLoading, profile };

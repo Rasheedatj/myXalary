@@ -28,7 +28,9 @@ const Header = ({ job }) => {
           <div className={styles.interview}>Invited for interview</div>
         )}
 
-        <time>Date Posted: {job.datePosted}</time>
+        <time>
+          Date Posted: {job.datePosted.slice(0, 10).replaceAll('-', '/')}
+        </time>
       </div>
     </header>
   );

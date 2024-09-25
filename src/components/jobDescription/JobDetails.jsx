@@ -15,7 +15,8 @@ const JobDetails = () => {
 
   if (isLoading) return <Spinner />;
 
-  if (!job) return <p>Please select a job</p>;
+  if (!job)
+    return <p className={styles.noJob}>Please select a job to display</p>;
 
   return (
     <section className={styles.details}>
