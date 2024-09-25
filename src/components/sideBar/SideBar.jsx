@@ -3,34 +3,33 @@ import styles from './SideBar.module.scss';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { formatToNaira } from '../../utils/index';
 
-const SideBar = ({jobs}) => {
+const SideBar = ({ jobs }) => {
   return (
-    <aside>
+    <aside className={styles.sideBar}>
       <ul>
-        <li>
-          {Array.from({ length: 10 }, (job, index) => (
+        {jobs.map((job) => (
+          <li key={job._id}>
             <NavLink
-              key={index}
-              to={`${index.toString()}`}
+              to={`${job._id.toString()}`}
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
             >
-              <img src='/company-logo.svg' alt='company logo' />
+              <img src={job.logo} alt='company logo' />
 
               <article>
-                <h3>Senior product designer</h3>
-                <p>atb tech</p>
+                <h3>{job.title}</h3>
+                <p>{job.company}</p>
 
                 <div>
                   <span>
                     <HiOutlineLocationMarker />
-                    Lagos, Nigeria
+                    {job.location}
                   </span>
-                  <span>{formatToNaira(1000000)}</span>
+                  <span>{formatToNaira(job.salary)}</span>
                 </div>
               </article>
             </NavLink>
-          ))}
-        </li>
+          </li>
+        ))}
       </ul>
     </aside>
   );

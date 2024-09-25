@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import Status from '../status/Status';
 import Button from '../button/Button';
 import { closeMenu } from '../../redux/appSlice';
-import { FaBook, FaRegCheckSquare, FaRegClock } from 'react-icons/fa';
+import { FaBook, FaRegClock } from 'react-icons/fa';
 import { BsCheck2Circle } from 'react-icons/bs';
 
 const Nav = () => {

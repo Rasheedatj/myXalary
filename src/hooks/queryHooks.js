@@ -1,17 +1,25 @@
 import { useQuery } from '@tanstack/react-query';
-import { getJobs } from '../../services/apiJobs';
+import { getJobs } from '../services/apiJobs';
+import { useParams } from 'react-router-dom';
+import { getJob } from '../services/apiJobs';
 
 export const useJobs = () => {
-  const {
-    isLoading,
-    data: jobs,
-    error,
-  } = useQuery({
+  const { isLoading, data: jobs } = useQuery({
     queryKey: ['jobs'],
     queryFn: getJobs,
   });
 
   return { isLoading, jobs };
+};
+
+export const useJob = (path) => {
+  const { jobId } = useParams();
+  const { isLoading, data: job } = useQuery({
+    queryKey: ['job', jobId],
+    queryFn: () => getJob({ jobId, path }),
+  });
+
+  return { isLoading, job };
 };
 
 export const useApplications = () => {

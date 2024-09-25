@@ -1,18 +1,26 @@
 import Footer from './Footer';
 import Header from './Header';
 import styles from './Details.module.scss';
-import { useParams } from 'react-router-dom';
+
 import Description from './Description';
+import { useJob } from '../../hooks/queryHooks';
+import Spinner from '../spinner/Spinner';
+import { useLocation } from 'react-router-dom';
 
 const JobDetails = () => {
-  // 1. use jobId to fetch the job description from the backend
-  // 2. save job title, company, location, field and date into and obj and pass it into header
-  // 3. pass the job object into description
-  const { jobId } = useParams();
+  const { pathname } = useLocation();
+  const path = pathname.split('/')[1];
+
+  const { isLoading, job } = useJob(path);
+
+  if (isLoading) return <Spinner />;
+
+  if (!job) return <p>Please select a job</p>;
+
   return (
     <section className={styles.details}>
-      <Header />
-      <Description />
+      <Header job={job} />
+      <Description job={job} />
       <Footer />
     </section>
   );

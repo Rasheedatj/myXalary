@@ -1,59 +1,47 @@
 import List from '../list/List';
 import styles from './Details.module.scss';
-import {
-  responsibilities,
-  mustHaves,
-  qualifications,
-  benefits,
-  aboutCompany,
-  jobTitle,
-  formatToNaira,
-} from '../../utils';
+import { formatToNaira } from '../../utils';
 
-/* props { responsibilities,
-  mustHaves,
-  qualifications,
-  benefits,
-  aboutCompany,
-  jobTitle,} */
-
-const Description = () => {
+const Description = ({ job }) => {
   return (
     <div className={styles.description}>
-      <h2 className={styles.h2}>{jobTitle} Job Description</h2>
+      <h2 className={styles.h2}>{job.title} Job Description</h2>
 
       <article>
         <h3>Job Overview</h3>
-        <p>{aboutCompany}</p>
+        <p>{job.overview}</p>
       </article>
 
       <List
-        heading={`responsibilities for ${jobTitle}`}
-        list={responsibilities}
+        heading={`responsibilities for ${job.title}`}
+        list={job.responsibilities}
       />
 
-      <List heading={`qualifications for ${jobTitle}`} list={qualifications} />
-      <List heading='must haves' list={mustHaves} />
-      <List heading='benefits of working with us' list={benefits} />
+      <List
+        heading={`qualifications for ${job.title}`}
+        list={job.qualifications}
+      />
+      <List heading='must haves' list={job.mustHaves} />
+      <List heading='benefits of working with us' list={job.benefits} />
       <h3 className={styles.extras}>
-        Required educational level: <span>Graduate</span>
+        Required educational level: <span>{job.educationLevel}</span>
       </h3>
       <h3 className={styles.extras}>
-        experience level: <span>professional</span>
+        experience level: <span>{job.experienceLevel}</span>
       </h3>
       <h3 className={styles.extras}>
-        job type: <span>remote</span>
+        job type: <span>{job.type}</span>
       </h3>
       <h3 className={styles.extras}>
-        job role type: <span>fulltime</span>
+        job role type: <span>{job.roleType}</span>
       </h3>
       <h3 className={styles.extras}>
-        location: <span>lagos, NGA</span>
+        location: <span>{job.location}</span>
       </h3>
       <h3 className={styles.extras}>
-        salary:{' '}
+        salary:
         <span>
-          {formatToNaira(450000)} - {formatToNaira(600000)}
+          {formatToNaira(job.salary)} - {formatToNaira(job.salary)}
         </span>
       </h3>
     </div>
