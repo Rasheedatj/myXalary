@@ -3,13 +3,22 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '../button/Button';
 import Nav from './Nav';
-import { login, logOut } from '../../redux/profileSlice';
-import { openModal, toggleMenu } from '../../redux/appSlice';
+import {
+  changeModal,
+  handleLogin,
+  handleSignup,
+  toggleMenu,
+} from '../../redux/appSlice';
+import { logOut } from '../../redux/profileSlice';
 
 const Header = () => {
   const { isAuthenticated } = useSelector((store) => store.profile);
   const { openMenu } = useSelector((store) => store.app);
   const dispatch = useDispatch();
+
+  // function handleSignUp() {
+  //   dispatch(changeModal('signup'));
+  // }
 
   return (
     <header className={`${openMenu ? styles.open : ''} ${styles.header}`}>
@@ -33,18 +42,14 @@ const Header = () => {
               <Button
                 type='primary'
                 size='small'
-                onClick={() => {
-                  dispatch(login());
-                }}
+                onClick={() => dispatch(handleLogin())}
               >
                 Login
               </Button>
               <Button
                 type='secondary'
                 size='small'
-                onClick={() => {
-                  dispatch(openModal());
-                }}
+                onClick={() => dispatch(handleSignup())}
               >
                 Signup
               </Button>

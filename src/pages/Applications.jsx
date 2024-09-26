@@ -1,13 +1,13 @@
-import JobDetails from '../components/jobDescription/JobDetails';
 import SideBar from '../components/sideBar/SideBar';
+import Spinner from '../components/spinner/Spinner';
+import { useApplications } from '../hooks/queryHooks';
 
 const Applications = () => {
-  return (
-    <>
-      <SideBar />
-      <JobDetails />
-    </>
-  );
+  const { isLoading, applications } = useApplications();
+
+  if (isLoading) return <Spinner />;
+
+  return <SideBar jobs={applications} />;
 };
 
 export default Applications;

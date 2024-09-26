@@ -5,6 +5,8 @@ import { NavLink } from 'react-router-dom';
 import Status from '../status/Status';
 import Button from '../button/Button';
 import { closeMenu } from '../../redux/appSlice';
+import { FaBook, FaRegClock } from 'react-icons/fa';
+import { BsCheck2Circle } from 'react-icons/bs';
 
 const Nav = () => {
   const { profileScore } = useSelector((store) => store.profile);
@@ -21,7 +23,7 @@ const Nav = () => {
               onClick={() => dispatch(closeMenu())}
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
             >
-              <HiOutlineBookmark />
+              <BsCheck2Circle />
 
               <span>Jobs</span>
             </NavLink>
@@ -32,7 +34,7 @@ const Nav = () => {
               onClick={() => dispatch(closeMenu())}
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
             >
-              <HiOutlineBookmark />
+              <FaRegClock />
 
               <span>My Applications</span>
             </NavLink>
@@ -43,7 +45,7 @@ const Nav = () => {
               onClick={() => dispatch(closeMenu())}
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
             >
-              <HiOutlineBookmark />
+              <FaBook />
 
               <span>My Offers</span>
             </NavLink>

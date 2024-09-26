@@ -2,15 +2,17 @@ import { useLocation } from 'react-router-dom';
 import Button from '../button/Button';
 import styles from './Details.module.scss';
 
-const Header = ({ title, company, location, field, date }) => {
+const Header = ({ job }) => {
   const { pathname } = useLocation();
   const path = pathname.split('/')[1];
 
   return (
     <header className={styles.header}>
       <article className={styles.article}>
-        <h1>Senior Product Designer</h1>
-        <p>Lagos, NGA / ATB TECH /INFORMATION TECHNOLOGY</p>
+        <h1>{job.title}</h1>
+        <p>
+          {job.location} / {job.company} /{job.field}
+        </p>
       </article>
 
       <div className={styles.btn}>
@@ -26,7 +28,9 @@ const Header = ({ title, company, location, field, date }) => {
           <div className={styles.interview}>Invited for interview</div>
         )}
 
-        <time>Date Posted: 20/07/2023</time>
+        <time>
+          Date Posted: {job.datePosted.slice(0, 10).replaceAll('-', '/')}
+        </time>
       </div>
     </header>
   );

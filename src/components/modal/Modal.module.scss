@@ -13,14 +13,14 @@
   }
 
   & > form {
-    width: 60%;
+    width: 70%;
     max-width: 90%;
     background-color: var(--white);
     box-shadow: var(--box-shadow);
     border-radius: 10px;
     padding: 2rem;
     position: relative;
-    margin-block: 3rem;
+    margin: 5rem 0 3rem;
 
     & .close {
       position: absolute;
@@ -67,6 +67,7 @@
     main {
       width: 90%;
       margin-inline: auto;
+
       article {
         text-align: center;
         padding: 4rem 0;

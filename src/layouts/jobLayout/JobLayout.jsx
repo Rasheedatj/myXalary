@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import JobNav from '../../components/jobNav/JobNav';
 import styles from './JobLayout.module.scss';
+import JobDetails from '../../components/jobDescription/JobDetails';
 
 const JobLayout = () => {
   return (
@@ -9,6 +10,7 @@ const JobLayout = () => {
 
       <main>
         <Outlet />
+        <JobDetails />
       </main>
     </section>
   );
