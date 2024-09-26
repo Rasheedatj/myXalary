@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:5500/api';
+const baseURL = 'https://my-xalary-backend.onrender.com/api';
 
 export const getJobs = async () => {
   try {
