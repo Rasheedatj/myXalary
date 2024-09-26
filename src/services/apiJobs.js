@@ -12,6 +12,8 @@ export const getJobs = async () => {
 };
 
 export const getJob = async ({ jobId, path }) => {
+  if (!jobId) return null;
+
   try {
     const res = await fetch(`${baseURL}/${path}/${jobId}`);
     if (!res.ok) throw new Error(`${path} could not be loaded!`);

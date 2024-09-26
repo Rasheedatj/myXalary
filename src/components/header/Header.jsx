@@ -10,22 +10,19 @@ import {
   toggleMenu,
 } from '../../redux/appSlice';
 import { logOut } from '../../redux/profileSlice';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const { isAuthenticated } = useSelector((store) => store.profile);
   const { openMenu } = useSelector((store) => store.app);
   const dispatch = useDispatch();
 
-  // function handleSignUp() {
-  //   dispatch(changeModal('signup'));
-  // }
-
   return (
     <header className={`${openMenu ? styles.open : ''} ${styles.header}`}>
       <div className={`${!isAuthenticated ? styles.border : ''} ${styles.box}`}>
-        <div className={styles.logoContainer}>
+        <Link to='jobs' className={styles.logoContainer}>
           <img src='/full-logo.svg' alt='myxalary logo' />
-        </div>
+        </Link>
 
         {/* show logout button if user is authenticated else show signin / login buttons */}
         <nav className={styles.btns}>
