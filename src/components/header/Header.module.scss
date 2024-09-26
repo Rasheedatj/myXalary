@@ -11,12 +11,11 @@
 
   &.open {
     position: fixed;
-    height: auto;
+    height: 100dvh;
     inset: 0;
     overflow: auto;
     margin-bottom: 0;
     border-radius: 0;
-    padding-bottom: 5rem;
   }
 
   & .box {
