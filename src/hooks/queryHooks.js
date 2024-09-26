@@ -19,6 +19,7 @@ export const useJobs = () => {
 
 export const useJob = (path) => {
   const { jobId } = useParams();
+
   const { isLoading, data: job } = useQuery({
     queryKey: ['job', jobId],
     queryFn: () => getJob({ jobId, path }),

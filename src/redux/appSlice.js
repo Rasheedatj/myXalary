@@ -4,6 +4,7 @@ const initialState = {
   modalState: true,
   openMenu: false,
   activeModal: '',
+  board: true,
 };
 
 const appSlice = createSlice({
@@ -27,12 +28,25 @@ const appSlice = createSlice({
       state.activeModal = action.payload;
       state.modalState = true;
     },
+    toggleBoard(state) {
+      state.board = !state.board;
+    },
+    openBoard(state) {
+      state.board = false;
+    },
   },
 });
 
 export default appSlice.reducer;
-export const { openModal, closeModal, toggleMenu, closeMenu, changeModal } =
-  appSlice.actions;
+export const {
+  openModal,
+  closeModal,
+  toggleMenu,
+  closeMenu,
+  changeModal,
+  toggleBoard,
+  openBoard,
+} = appSlice.actions;
 
 // THUNKS
 export const handleLogin = () => (dispatch) => {

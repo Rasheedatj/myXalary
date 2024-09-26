@@ -9,5 +9,10 @@
     height: 100dvh;
     overflow: hidden;
     margin-top: 3rem;
+
+    @media screen and (max-width: 500px) {
+      grid-template-columns: 1fr;
+      height: auto;
+    }
   }
 }
