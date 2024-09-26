@@ -7,11 +7,16 @@
   margin-bottom: 4rem;
   height: fit-content;
   z-index: 100;
+  scroll-behavior: smooth;
 
   &.open {
     position: fixed;
-    height: 100dvh;
+    height: auto;
     inset: 0;
+    overflow: auto;
+    margin-bottom: 0;
+    border-radius: 0;
+    padding-bottom: 5rem;
   }
 
   & .box {
