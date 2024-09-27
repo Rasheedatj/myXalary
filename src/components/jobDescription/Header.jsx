@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import Button from '../button/Button';
 import styles from './Details.module.scss';
-import { toggleBoard } from '../../redux/appSlice';
+import { closeBoard } from '../../redux/appSlice';
 import { useDispatch } from 'react-redux';
 
 const Header = ({ job }) => {
@@ -13,7 +13,7 @@ const Header = ({ job }) => {
     <header className={styles.header}>
       <article className={styles.article}>
         <h1>
-          <span onClick={() => dispatch(toggleBoard())}>&lt;</span> {job.title}
+          <span onClick={() => dispatch(closeBoard())}>&lt;</span> {job.title}
         </h1>
         <p>
           {job.location} / {job.company} /{job.field}

@@ -28,11 +28,15 @@ const appSlice = createSlice({
       state.activeModal = action.payload;
       state.modalState = true;
     },
-    toggleBoard(state) {
-      state.board = !state.board;
-    },
+    // toggleBoard(state) {
+    //   state.board = !state.board;
+    // },
     openBoard(state) {
       state.board = false;
+    },
+
+    closeBoard(state) {
+      state.board = true;
     },
   },
 });
@@ -44,8 +48,9 @@ export const {
   toggleMenu,
   closeMenu,
   changeModal,
-  toggleBoard,
+  // toggleBoard,
   openBoard,
+  closeBoard,
 } = appSlice.actions;
 
 // THUNKS

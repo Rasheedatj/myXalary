@@ -4,8 +4,16 @@
   @include flex-center;
   padding-inline: 2rem;
 
+  @media screen and (max-width: 800px) {
+    padding-inline: 0.5rem;
+  }
+
   & label {
     width: 50%;
+
+    @media screen and (max-width: 800px) {
+      width: 20%;
+    }
   }
 
   @media screen and (max-width: 500px) {
