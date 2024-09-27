@@ -3,7 +3,7 @@ import styles from './SideBar.module.scss';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { formatToNaira } from '../../utils/index';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleBoard } from '../../redux/appSlice';
+import { openBoard } from '../../redux/appSlice';
 
 const SideBar = ({ jobs }) => {
   const { board } = useSelector((store) => store.app);
@@ -18,7 +18,7 @@ const SideBar = ({ jobs }) => {
             <NavLink
               to={`${job._id.toString()}`}
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
-              onClick={() => dispatch(toggleBoard())}
+              onClick={() => dispatch(openBoard())}
             >
               <div className={styles.logo}>
                 <img src={job.logo} alt='company logo' />

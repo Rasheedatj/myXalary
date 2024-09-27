@@ -8,6 +8,7 @@ const AppLayout = () => {
   return (
     <section className={styles.section}>
       <Header />
+
       <main>
         <Outlet />
       </main>

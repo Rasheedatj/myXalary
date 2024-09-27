@@ -3,7 +3,7 @@ import JobNav from '../../components/jobNav/JobNav';
 import styles from './JobLayout.module.scss';
 import JobDetails from '../../components/jobDescription/JobDetails';
 import { useDispatch } from 'react-redux';
-import { openBoard } from '../../redux/appSlice';
+import { closeBoard, openBoard } from '../../redux/appSlice';
 import { useEffect } from 'react';
 
 const JobLayout = () => {
@@ -13,6 +13,7 @@ const JobLayout = () => {
   useEffect(
     function () {
       if (jobId) dispatch(openBoard());
+      else dispatch(closeBoard());
     },
     [jobId, dispatch]
   );
