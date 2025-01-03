@@ -17,8 +17,9 @@ const JobDetails = () => {
 
   if (isLoading) return <Spinner />;
 
-  if (!job)
-    return <p className={styles.noJob}>Please select a job to display</p>;
+  const applied = path !== 'jobs';
+
+  if (!job) return null;
 
   return (
     <section
@@ -26,7 +27,8 @@ const JobDetails = () => {
     >
       <Header job={job} />
       <Description job={job} />
-      <Footer />
+
+      {applied || <Footer />}
     </section>
   );
 };
