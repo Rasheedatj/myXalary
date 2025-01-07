@@ -1,0 +1,19 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  background: #f8f8f8;
+  color: black;
+  height: 100vh;
+
+  p {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  pre {
+    font-size: 1.3rem;
+  }
+}

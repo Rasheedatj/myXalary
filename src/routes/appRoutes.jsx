@@ -1,5 +1,4 @@
 import { Navigate } from 'react-router-dom';
-
 import AppLayout from '../layouts/appLayout/AppLayout';
 import JobLayout from '../layouts/jobLayout/JobLayout';
 import Applications from '../pages/Applications';

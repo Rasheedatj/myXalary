@@ -1,13 +1,20 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import styles from './SideBar.module.scss';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { formatToNaira } from '../../utils/index';
 import { useDispatch, useSelector } from 'react-redux';
 import { openBoard } from '../../redux/appSlice';
+import { useEffect } from 'react';
 
 const SideBar = ({ jobs }) => {
   const { board } = useSelector((store) => store.app);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate(jobs[0]._id.toString());
+  }, [jobs, navigate]);
+
   return (
     <aside
       className={`${board ? styles.open : styles.close} ${styles.sideBar}`}
