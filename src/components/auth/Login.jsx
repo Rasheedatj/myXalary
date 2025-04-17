@@ -1,32 +1,26 @@
-import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-
 import Button from '../button/Button';
 import Input from '../input/Input';
 import Modal from '../modal/Modal';
-import { login } from '../../redux/profileSlice';
 import Status from '../status/Status';
-import { handleSignup } from '../../redux/appSlice';
 
 const Login = () => {
-  const dispatch = useDispatch();
-  const { register, handleSubmit, reset, formState } = useForm();
+  const { handleSubmit, register, reset, formState } = useForm();
   const { errors } = formState;
 
-  const onSubmit = () => {
-    dispatch(login());
+  const onsubmit = () => {
     reset();
   };
 
   return (
-    <Modal submitFn={handleSubmit(onSubmit)}>
-      <header>
-        <p>Login</p>
-
-        <Status type='purpleSecondary' onClick={() => dispatch(handleSignup())}>
-          Don&apos;t have an account? &nbsp; sign up
-        </Status>
-      </header>
+    <Modal.Window modalName='Login'>
+      <Modal.Header>
+        <Modal.Open modalName='Sign up'>
+          <Status type='purpleSecondary'>
+            Don&apos;t have an account? &nbsp; sign up
+          </Status>
+        </Modal.Open>
+      </Modal.Header>
 
       <main>
         <article>
@@ -37,7 +31,7 @@ const Login = () => {
           </p>
         </article>
 
-        <div>
+        <form onSubmit={handleSubmit(onsubmit)}>
           <Input
             type='email'
             label='email address'
@@ -52,12 +46,15 @@ const Login = () => {
             register={register}
             error={errors?.password?.message}
           />
-          <Button type='primary' size='medium'>
-            Login
-          </Button>
-        </div>
+
+          <Modal.Close>
+            <Button type='primary' size='medium'>
+              Login
+            </Button>
+          </Modal.Close>
+        </form>
       </main>
-    </Modal>
+    </Modal.Window>
   );
 };
 

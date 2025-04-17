@@ -1,16 +1,13 @@
-import styles from './Header.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-
-import Button from '../button/Button';
-import Nav from './Nav';
-import {
-  changeModal,
-  handleLogin,
-  handleSignup,
-  toggleMenu,
-} from '../../redux/appSlice';
-import { logOut } from '../../redux/profileSlice';
+import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
+import { toggleMenu } from '../../redux/appSlice';
+import { logOut } from '../../redux/profileSlice';
+import Login from '../auth/Login';
+import SignUp from '../auth/SignUp';
+import Button from '../button/Button';
+import Modal from '../modal/Modal';
+import Nav from './Nav';
 
 const Header = () => {
   const { isAuthenticated } = useSelector((store) => store.profile);
@@ -30,26 +27,32 @@ const Header = () => {
             <Button
               type='primary'
               size='small'
-              onClick={() => dispatch(logOut())}
+              onClick={() => {
+                console.log('object');
+                dispatch(logOut());
+              }}
             >
               Logout
             </Button>
           ) : (
             <>
-              <Button
-                type='primary'
-                size='small'
-                onClick={() => dispatch(handleLogin())}
-              >
-                Login
-              </Button>
-              <Button
-                type='secondary'
-                size='small'
-                onClick={() => dispatch(handleSignup())}
-              >
-                Signup
-              </Button>
+              <Modal>
+                <Modal.Open modalName='Login'>
+                  <Button type='primary' size='small'>
+                    Login
+                  </Button>
+                </Modal.Open>
+
+                <Login />
+
+                <Modal.Open modalName='Sign up'>
+                  <Button type='secondary' size='small'>
+                    Signup
+                  </Button>
+                </Modal.Open>
+
+                <SignUp />
+              </Modal>
             </>
           )}
         </nav>
