@@ -1,31 +1,26 @@
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-
-import Modal from '../modal/Modal';
-import Input from '../input/Input';
 import Button from '../button/Button';
+import Input from '../input/Input';
+import Modal from '../modal/Modal';
 import Status from '../status/Status';
-import { handleLogin } from '../../redux/appSlice';
 
 const SignUp = () => {
   const { handleSubmit, register, reset, formState } = useForm();
   const { errors } = formState;
-  const dispatch = useDispatch();
 
-  const onSubmit = () => {
+  const onsubmit = () => {
     reset();
   };
 
   return (
-    <Modal submitFn={handleSubmit(onSubmit)}>
-      <header>
-        <p>SignUp</p>
-
-        <Status type='pinkSecondary' onClick={() => dispatch(handleLogin())}>
-          Already have an account? &nbsp; login
-        </Status>
-      </header>
-
+    <Modal.Window modalName='Sign up'>
+      <Modal.Header>
+        <Modal.Open modalName='Login'>
+          <Status type='pinkSecondary'>
+            Already have an account? &nbsp; Login
+          </Status>
+        </Modal.Open>
+      </Modal.Header>
       <main>
         <article>
           <h2>Signup to apply to jobs</h2>
@@ -37,7 +32,7 @@ const SignUp = () => {
           </p>
         </article>
 
-        <div>
+        <form onSubmit={handleSubmit(onsubmit)}>
           <Input
             type='email'
             label='email address'
@@ -59,12 +54,15 @@ const SignUp = () => {
             register={register}
             error={errors?.confirmPassworf?.message}
           />
-          <Button type='secondary' size='medium'>
-            Signup
-          </Button>
-        </div>
+
+          <Modal.Close>
+            <Button type='secondary' size='medium'>
+              Signup
+            </Button>
+          </Modal.Close>
+        </form>
       </main>
-    </Modal>
+    </Modal.Window>
   );
 };
 

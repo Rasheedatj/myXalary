@@ -1,38 +1,97 @@
+import {
+  cloneElement,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
+import { createPortal } from 'react-dom';
 import styles from './Modal.module.scss';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { closeModal } from '../../redux/appSlice';
-import { HiXMark } from 'react-icons/hi2';
-import { useSearchParams } from 'react-router-dom';
+import { useOutsideClick } from '../../hooks/useOutsideClick';
+import Status from '../status/Status';
+import { HiOutlineX, HiXCircle } from 'react-icons/hi';
 
-const Modal = ({ submitFn, children }) => {
-  const { modalState } = useSelector((store) => store.app);
-  const dispatch = useDispatch();
-  const [, setSearchParams] = useSearchParams();
+const ModalContext = createContext({
+  handleCloseModal: () => {},
+  handleOpenModal: () => {},
+  openModal: '',
+});
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    submitFn();
-    // dispatch(closeModal());
-  }
+const Modal = ({ children }) => {
+  const [openModal, setModal] = useState('');
+  const handleOpenModal = setModal;
+  const handleCloseModal = () => setModal('');
 
-  function handleCloseModal() {
-    setSearchParams({});
-    dispatch(closeModal());
-  }
+  useEffect(() => {
+    if (openModal !== '') {
+      document.body.style.overflow = 'hidden';
+    }
+  }, [openModal]);
 
-  if (modalState === true)
-    return (
-      <section className={styles.modal}>
-        <form onSubmit={handleSubmit}>
-          {children}
-
-          <span className={styles.close} onClick={handleCloseModal}>
-            <HiXMark />
-          </span>
-        </form>
-      </section>
-    );
+  return (
+    <ModalContext.Provider
+      value={{ handleCloseModal, handleOpenModal, openModal }}
+    >
+      {children}
+    </ModalContext.Provider>
+  );
 };
+
+const Open = ({ children, modalName, handleFnc }) => {
+  const { handleOpenModal } = useContext(ModalContext);
+
+  return cloneElement(children, {
+    onClick: () => {
+      handleFnc?.();
+      handleOpenModal(modalName);
+    },
+  });
+};
+
+const Close = ({ children, handleFnc }) => {
+  const { handleCloseModal } = useContext(ModalContext);
+  return cloneElement(children, {
+    onClick: () => {
+      handleFnc?.();
+      handleCloseModal();
+    },
+  });
+};
+
+const Header = ({ children }) => {
+  const { openModal } = useContext(ModalContext);
+  return (
+    <header>
+      <p>{openModal}</p>
+
+      {children}
+    </header>
+  );
+};
+
+const Window = ({ modalName, children }) => {
+  const { openModal, handleCloseModal } = useContext(ModalContext);
+  const ref = useOutsideClick(handleCloseModal);
+
+  if (openModal !== modalName) return;
+
+  return createPortal(
+    <section className={styles.overlay}>
+      <section ref={ref} className={styles.modal}>
+        <div className={styles.close} onClick={handleCloseModal}>
+          <HiOutlineX size={24} />
+        </div>
+        <section className={styles.main}>{children}</section>
+      </section>
+    </section>,
+    document.body
+  );
+};
+
+Modal.Open = Open;
+Modal.Close = Close;
+Modal.Window = Window;
+Modal.Header = Header;
 
 export default Modal;
