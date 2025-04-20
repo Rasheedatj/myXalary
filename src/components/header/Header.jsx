@@ -28,7 +28,6 @@ const Header = () => {
               type='primary'
               size='small'
               onClick={() => {
-                console.log('object');
                 dispatch(logOut());
               }}
             >

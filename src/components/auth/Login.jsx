@@ -3,13 +3,17 @@ import Button from '../button/Button';
 import Input from '../input/Input';
 import Modal from '../modal/Modal';
 import Status from '../status/Status';
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/profileSlice';
 
 const Login = () => {
   const { handleSubmit, register, reset, formState } = useForm();
   const { errors } = formState;
+  const dispatch = useDispatch();
 
   const onsubmit = () => {
     reset();
+    dispatch(login());
   };
 
   return (
@@ -47,11 +51,9 @@ const Login = () => {
             error={errors?.password?.message}
           />
 
-          <Modal.Close>
-            <Button type='primary' size='medium'>
-              Login
-            </Button>
-          </Modal.Close>
+          <Button type='primary' size='medium'>
+            Login
+          </Button>
         </form>
       </main>
     </Modal.Window>

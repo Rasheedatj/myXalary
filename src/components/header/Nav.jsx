@@ -19,7 +19,7 @@ const Nav = () => {
         <ul>
           <li>
             <NavLink
-              to='jobs'
+              to='/jobs'
               onClick={() => dispatch(closeMenu())}
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
             >
@@ -30,7 +30,7 @@ const Nav = () => {
           </li>
           <li>
             <NavLink
-              to='applications'
+              to='/applications'
               onClick={() => dispatch(closeMenu())}
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
             >
@@ -41,7 +41,7 @@ const Nav = () => {
           </li>
           <li>
             <NavLink
-              to='offers'
+              to='/offers'
               onClick={() => dispatch(closeMenu())}
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
             >
@@ -52,7 +52,7 @@ const Nav = () => {
           </li>
           <li>
             <NavLink
-              to='profile'
+              to='/profile'
               onClick={() => dispatch(closeMenu())}
               className={({ isActive }) => (isActive ? `${styles.active}` : '')}
             >
