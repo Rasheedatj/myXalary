@@ -8,9 +8,8 @@ import {
 import { createPortal } from 'react-dom';
 import styles from './Modal.module.scss';
 
+import { HiOutlineX } from 'react-icons/hi';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
-import Status from '../status/Status';
-import { HiOutlineX, HiXCircle } from 'react-icons/hi';
 
 const ModalContext = createContext({
   handleCloseModal: () => {},
@@ -80,7 +79,7 @@ const Window = ({ modalName, children }) => {
     <section className={styles.overlay}>
       <section ref={ref} className={styles.modal}>
         <div className={styles.close} onClick={handleCloseModal}>
-          <HiOutlineX size={24} />
+          <HiOutlineX size={20} />
         </div>
         <section className={styles.main}>{children}</section>
       </section>
