@@ -26,6 +26,12 @@ button {
   border-radius: 7px;
 }
 
+.loadingBtn {
+  background-color: var(--color-purple-primary);
+  color: var(--color-purple-secondary);
+  font-weight: 500;
+}
+
 .smallBtn {
   padding: 1rem 2rem;
 }

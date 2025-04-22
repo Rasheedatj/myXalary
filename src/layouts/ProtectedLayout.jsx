@@ -9,7 +9,7 @@ const ProtectedLayout = () => {
   console.log(isAuthenticated);
 
   useEffect(() => {
-    if (!isAuthenticated) return navigate('/jobs');
+    if (!isAuthenticated) return navigate('/jobs', { replace: true });
   }, [isAuthenticated, navigate]);
 
   return <Outlet />;

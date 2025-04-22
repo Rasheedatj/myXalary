@@ -2,8 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   profileScore: 100,
-  isAuthenticated: true,
+  isAuthenticated: false,
   user: null,
+  token: null,
 };
 
 const profileSlice = createSlice({
@@ -13,6 +14,8 @@ const profileSlice = createSlice({
     login(state, action) {
       state.isAuthenticated = true;
       state.user = action.payload;
+      state.token = action.payload.accessToken;
+      state.isAuthenticated = true;
     },
     logOut(state) {
       state.isAuthenticated = false;

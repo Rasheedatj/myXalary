@@ -5,15 +5,28 @@ import Modal from '../modal/Modal';
 import Status from '../status/Status';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/profileSlice';
+import { useLogin } from '../../hooks/auth';
 
 const Login = () => {
+  const { isPending, loginUser } = useLogin();
   const { handleSubmit, register, reset, formState } = useForm();
   const { errors } = formState;
   const dispatch = useDispatch();
 
-  const onsubmit = () => {
-    reset();
-    dispatch(login());
+  const onsubmit = (values) => {
+    loginUser(
+      { email: values.email, password: values.password },
+      {
+        onSuccess: (data) => {
+          console.log(data);
+          dispatch(login(data));
+          reset();
+        },
+        onError: (error) => {
+          alert(error.message);
+        },
+      }
+    );
   };
 
   return (
@@ -51,8 +64,8 @@ const Login = () => {
             error={errors?.password?.message}
           />
 
-          <Button type='primary' size='medium'>
-            Login
+          <Button type={isPending ? 'loading' : 'primary'} size='medium'>
+            {isPending ? 'Processing, please wait...' : 'Login'}
           </Button>
         </form>
       </main>
