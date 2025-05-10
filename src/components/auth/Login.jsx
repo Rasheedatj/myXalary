@@ -6,10 +6,22 @@ import Status from '../status/Status';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/profileSlice';
 import { useLogin } from '../../hooks/auth';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 const Login = () => {
+  const loginSchema = z.object({
+    email: z.string().nonempty('Email is required').email(),
+    password: z
+      .string()
+      .min(5, 'Password must be at least 5 characters')
+      .nonempty('Password is required'),
+  });
+
   const { isPending, loginUser } = useLogin();
-  const { handleSubmit, register, reset, formState } = useForm();
+  const { handleSubmit, register, reset, formState } = useForm({
+    resolver: zodResolver(loginSchema),
+  });
   const { errors } = formState;
   const dispatch = useDispatch();
 
@@ -18,7 +30,6 @@ const Login = () => {
       { email: values.email, password: values.password },
       {
         onSuccess: (data) => {
-          console.log(data);
           dispatch(login(data));
           reset();
         },

@@ -3,12 +3,51 @@ import Button from '../button/Button';
 import Input from '../input/Input';
 import Modal from '../modal/Modal';
 import Status from '../status/Status';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/profileSlice';
 
 const SignUp = () => {
-  const { handleSubmit, register, reset, formState } = useForm();
-  const { errors } = formState;
+  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
 
-  const onsubmit = () => {
+  const signupSchema = z
+    .object({
+      email: z
+        .string()
+        .nonempty('Email is required')
+        .email('Invalid email address'),
+      password: z
+        .string()
+        .nonempty('Password is required')
+        .min(5, 'Password must be at least 5 characters'),
+      confirmPassword: z
+        .string()
+        .nonempty('Password is required')
+        .min(5, 'Password must be at least 5 characters'),
+    })
+    .refine((data) => data.password === data.confirmPassword, {
+      message: 'Passwords do not match',
+      path: ['confirmPassword'],
+    });
+
+  const {
+    handleSubmit,
+    register,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(signupSchema),
+  });
+
+  const onsubmit = async () => {
+    setIsLoading(true);
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    setIsLoading(false);
+    dispatch(login({ username: 'emilys', password: 'emilyspass' }));
+
     reset();
   };
 
@@ -52,14 +91,12 @@ const SignUp = () => {
             label='Confirm Password'
             id='confirmPassword'
             register={register}
-            error={errors?.confirmPassworf?.message}
+            error={errors?.confirmPassword?.message}
           />
 
-          <Modal.Close>
-            <Button type='secondary' size='medium'>
-              Signup
-            </Button>
-          </Modal.Close>
+          <Button type={isLoading ? 'loading' : 'primary'} size='medium'>
+            {isLoading ? 'Processing, please wait...' : 'Signup'}
+          </Button>
         </form>
       </main>
     </Modal.Window>

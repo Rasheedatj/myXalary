@@ -7,6 +7,7 @@ import Button from '../button/Button';
 import { closeMenu } from '../../redux/appSlice';
 import { FaBook, FaRegClock } from 'react-icons/fa';
 import { BsCheck2Circle } from 'react-icons/bs';
+import { logOut } from '../../redux/profileSlice';
 
 const Nav = () => {
   const { profileScore } = useSelector((store) => store.profile);
@@ -62,11 +63,7 @@ const Nav = () => {
           </li>
         </ul>
 
-        <Button
-          type='primary'
-          size='small'
-          // onClick={() => dispatch(logOut())}
-        >
+        <Button type='primary' size='small' onClick={() => dispatch(logOut())}>
           Logout
         </Button>
       </nav>

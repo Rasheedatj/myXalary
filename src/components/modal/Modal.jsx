@@ -20,10 +20,20 @@ const ModalContext = createContext({
 const Modal = ({ children }) => {
   const [openModal, setModal] = useState('');
   const handleOpenModal = setModal;
-  const handleCloseModal = () => setModal('');
+
+  const handleCloseModal = () => {
+    console.log('close');
+    document.body.style.overflow = 'auto';
+    setModal('');
+  };
 
   useEffect(() => {
-    if (openModal !== '') {
+    console.log('object');
+    if (openModal === '') {
+      console.log('red');
+      document.body.style.overflow = 'auto';
+    } else {
+      console.log('hidden');
       document.body.style.overflow = 'hidden';
     }
   }, [openModal]);
