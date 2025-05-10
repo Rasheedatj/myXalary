@@ -5,15 +5,39 @@ import Modal from '../modal/Modal';
 import Status from '../status/Status';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/profileSlice';
+import { useLogin } from '../../hooks/auth';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 const Login = () => {
-  const { handleSubmit, register, reset, formState } = useForm();
+  const loginSchema = z.object({
+    email: z.string().nonempty('Email is required').email(),
+    password: z
+      .string()
+      .min(5, 'Password must be at least 5 characters')
+      .nonempty('Password is required'),
+  });
+
+  const { isPending, loginUser } = useLogin();
+  const { handleSubmit, register, reset, formState } = useForm({
+    resolver: zodResolver(loginSchema),
+  });
   const { errors } = formState;
   const dispatch = useDispatch();
 
-  const onsubmit = () => {
-    reset();
-    dispatch(login());
+  const onsubmit = (values) => {
+    loginUser(
+      { email: values.email, password: values.password },
+      {
+        onSuccess: (data) => {
+          dispatch(login(data));
+          reset();
+        },
+        onError: (error) => {
+          alert(error.message);
+        },
+      }
+    );
   };
 
   return (
@@ -51,8 +75,8 @@ const Login = () => {
             error={errors?.password?.message}
           />
 
-          <Button type='primary' size='medium'>
-            Login
+          <Button type={isPending ? 'loading' : 'primary'} size='medium'>
+            {isPending ? 'Processing, please wait...' : 'Login'}
           </Button>
         </form>
       </main>
